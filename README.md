@@ -5,50 +5,67 @@
 # @polkadot/apps
 
 A Portal into the Polkadot and Substrate networks. Provides a view and interaction layer from a browser.
-
-This can be accessed as a hosted application via https://polkadot.js.org/apps/ or you can access the IPFS hosted version via https://polkadot.js.org/apps/ipfs (via hash) or https://dotapps.io (via ipns) to explore any of the supported Polkadot and Substrate chains.
-
-If you run one or more IPFS node(s), pinning the UI (which only gets updated on releases) will make it faster for you and others. You can find details about that below in the IPFS chapter below.
+portal 门户
+This can be accessed as a hosted application via https://polkadot.js.org/apps/ or you can access the IPFS hosted version via https://polkadot.js.org/apps/ipfs (via 
+accessed 通道，途径
+hash) or https://dotapps.io (via ipns) to explore any of the supported Polkadot and Substrate chains.
+explore 探索
+If you run one or more IPFS node(s), pinning the UI (which only gets updated on releases) will make it faster for you and others. You can find details about that 
+pinning 固定大头针
+below in the IPFS chapter below.
 
 **Important** If you are a chain developer and would like to add support for your chain to the UI, all the local configuration (API types, settings, logos) can be customized in [the apps-config package](packages/apps-config#README.md), complete with instructions of what goes where.
 
 ## overview
 
 The repo is split into a number of packages, each representing an application. These are -
-
+representing 代表
 - [apps](packages/apps/) This is the main entry point. It handles the selection sidebar and routing to the specific application being displayed.
+entry 进入 handles 把手 柄 specific特定的
 - [apps-electron](packages/apps-electron/) Desktop app running [apps](packages/apps/).
 - [page-accounts](packages/page-accounts/) A basic account management app.
 - [page-address-book](packages/page-address-book/) A basic address management app.
 - [page-democracy](packages/page-democracy/) A basic voting app, allowing votes on activate proposals and referenda.
+democracy 民主 proposals提议  referendum公投
 - [page-explorer](packages/page-explorer/) A simple block explorer. It only shows the most recent blocks, updating as they become available.
+一有可用就更新
 - [page-extrinsics](packages/page-extrinsics/) Submission of extrinsics to a node.
-- [page-js](packages/page-js/) An online code editor with [@polkadot-js/api](https://github.com/polkadot-js/api/tree/master/packages/api) access to the currently connected node.
+extrinsic 非固有的   Submission 提交 呈递
+- [page-js](packages/page-js/) An online code editor with [@polkadot-js/api](https://github.com/polkadot-js/api/tree/master/packages/api) access to the currently connected node. 
+node 节点  currently 当前的
 - [page-settings](packages/page-settings/) A basic settings management app, allowing choice of language, node to connect to, and theme
 - [page-staking](packages/page-staking/) A basic staking management app, allowing staking and nominations.
+stake 股份 股本 nomination 提名 推荐
 - [page-storage](packages/page-storage/) A simple node storage query application. Multiple queries can be queued and updates as new values become available.
+query 查询   queued 排队
 - [page-toolbox](packages/page-toolbox/) Submission of raw data to RPC endpoints and utility hashing functions.
+endpoint 终点 目标
+
 - [page-transfer](packages/page-transfer/) A basic account management app, allowing transfer of Units/DOTs between accounts.
 
 In addition the following libraries are also included in the repo. These are to be moved to the [@polkadot/ui](https://github.com/polkadot-js/ui/) repository once it reaches a base level of stability and usability. (At this point with the framework being tested on the apps above, it makes development easier having it close)
 
 - [react-components](packages/react-components/) A reactive (using RxJS) application framework with a number of useful shared components.
+reactive 反应的 回应的 shared 共享
 - [react-signer](packages/react-signer/) Signer implementation for apps.
 - [react-query](packages/react-query) Base components that use the RxJS Observable APIs
+Observable 观察
 
 ## Development
 
 Contributions are welcome!
-
+contribution 捐赠
 To start off, this repo (along with others in the [@polkadot](https://github.com/polkadot-js/) family) uses yarn workspaces to organize the code. As such, after cloning dependencies _should_ be installed via `yarn`, not via npm, the latter will result in broken dependencies.
-
+via 通过
 To get started -
 
 1. Clone the repo locally, via `git clone https://github.com/polkadot-js/apps <optional local path>`
 2. Ensure that you have a recent LTS version of Node.js, for development purposes [Node >=10.13.0](https://nodejs.org/en/) is recommended.
+recent 最近的   recommend 推荐
 3. Ensure that you have a recent version of Yarn, for development purposes [Yarn >=1.10.1](https://yarnpkg.com/docs/install) is required.
 4. Install the dependencies by running `yarn`
 5. Ready! Now you can launch the UI (assuming you have a local Polkadot Node running), via `yarn run start`
+assum假如
 6. Access the UI via [http://localhost:3000](http://localhost:3000)
 
 ## Docker
@@ -69,10 +86,13 @@ When using these Docker commands, you can access the UI via http://localhost:80 
 
 ## IPFS
 
-IPFS allows sharing files in a decentralized manner in a similar fashion the polkadot network exchanges blocks. IPFS works best when many nodes seed the same data. Nodes can seed specific data by **pinning** them.
-
+IPFS allows sharing files in a decentralized manner in a similar fashion the polkadot network exchanges blocks. IPFS works best when many nodes seed the same data. 
+manner 方式 similar 类似   fashion 类似
+Nodes can seed specific data by **pinning** them.
+seed 种子
 You can pin with the following command:
 
+macos `brew install jq`
 ```
 curl -s https://polkadot.js.org/apps/ipfs/pin.json | jq -jr .IpfsHash | xargs -0 -I CID ipfs pin add --progress CID
 ```
@@ -87,6 +107,7 @@ curl -s https://polkadot.js.org/apps/ipfs/pin.json | jq -jr .IpfsHash | xargs -0
 ```
 
 I suggest to run the script once. The output should be similar to (the CID/Hash will very likely be different though):
+suggest 提议
 ```
 $ /usr/local/bin/polkadotjs-ipfs-pin.sh
 pinned QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW recursively
@@ -99,7 +120,9 @@ QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW recursive
 ```
 
 Now that we know it works, we can automate that with a cron task. Run `crontab -e`.
+cron 计划
 If you see only comments, append the following to the file and save:
+comment 评论
 ```
 SHELL=/bin/bash
 HOME=/
@@ -107,12 +130,14 @@ HOME=/
 ```
 
 Now our script will run every hours at minute '0' (8:00, 9:00, etc...). To check, we can unpin temporarily:
+temporarily 临时 暂时
 ```
 $ ipfs pin rm QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW
 unpinned QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW
 ```
 
 Now asking for the CID confirms that is it not there.
+confirm 确定
 ```
 $ ipfs pin ls QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW
 Error: path 'QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW' is not pinned
