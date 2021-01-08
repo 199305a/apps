@@ -107,7 +107,7 @@ curl -s https://polkadot.js.org/apps/ipfs/pin.json | jq -jr .IpfsHash | xargs -0
 ```
 
 I suggest to run the script once. The output should be similar to (the CID/Hash will very likely be different though):
-suggest 提议
+suggest 提议 though 尽管
 ```
 $ /usr/local/bin/polkadotjs-ipfs-pin.sh
 pinned QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW recursively
@@ -122,7 +122,7 @@ QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW recursive
 Now that we know it works, we can automate that with a cron task. Run `crontab -e`.
 cron 计划
 If you see only comments, append the following to the file and save:
-comment 评论
+comment 评论 意见
 ```
 SHELL=/bin/bash
 HOME=/
@@ -150,13 +150,16 @@ QmNYAbzaE8kRAf68YiN3ZuUxgdwroeav3JhicsHsG5b2oW recursive
 ```
 
 Tada! This is now automatic and you may forget it.
-
-If you are curious and want to know how many people seed the UI on IPFS, here is the magic command (it may take a while to return the answer as ipfs will search for about 1 minute):
+tada 然后 
+If you are curious and want to know how many people seed the UI on IPFS, here is the magic command (it may take a while to return the answer as ipfs will search 
+curious 好奇的 
+for about 1 minute):
 ```
 ipfs dht findprovs QmTejwB7mJPBHBoqubjzHSgSxfLMcjnZA3LFefqoQc87VJ | wc -l
 ```
 
 If you are current about the content of what you just pinned, you may use the following command:
+current 现在的
 ```
 $ ipfs ls QmTejwB7mJPBHBoqubjzHSgSxfLMcjnZA3LFefqoQc87VJ
 QmPJGyqVCcXm238noz7TZDByyGa35qqc8g6sfyXF3KDXZ3 38078   favicon.ico
@@ -177,12 +180,15 @@ QmeYBC5EgbccC8NEwXC2rvbd93YiHtTM5xYzqCDohXerDf 859984  vendor.8b793a81.js
 ## Desktop App
 
 The main advantage of using Desktop App is that it by default stores encrypted accounts on the filesystem instead of browser's local storage.
+advantage 优势 好处
 Local storage is susceptible to attacks using XSS (Cross-Site Scripting). There's no such risk when with files stored on disk.
-
+susceptible 易受伤害的
 The desktop app uses the [Electron](https://www.electronjs.org/) framework. It provides the same features as web app, the only difference
 being different account storage.
 
 The accounts are stored in the following directories:
+directories 册
+
 * Mac: `~/Library/Application Support/polkadot-apps/polkadot-accounts`
 * Linux: `~/.config/polkadot-apps/polkadot-accounts` (or `$XDG_CONFIG_HOME/polkadot-apps/polkadot-accounts` if `$XDG_CONFIG_HOME` is defined)
 * Windows: `%APPDATA%\polkadot-apps\polkadot-accounts`
