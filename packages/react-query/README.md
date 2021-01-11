@@ -7,11 +7,11 @@ For the existing sharable components usable in external React-based projects, ta
 ## Overview
 
 A collection of RxJS enabled React components that operate with the [@polkadot/api-rx](https://github.com/polkadot-js/api) library. It automatically manages subscriptions on behalf of the developer, providing a number of unstyled components that can be used to construct UIs.
-
+behalf 代表 
 ## Usage
 
 Basic usage entails creating a `ContextProvider` and just using the components. For instance, to display the current node time,
-
+entail 需要 
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -28,7 +28,9 @@ ReactDOM.render(
 ...
 ```
 
-All components are provided unstyled making no assumptions on the actual use, however they all support (optionally) the `label`, `className` and `style` attributes, that can be used to style to component.
+All components are provided unstyled making no assumptions on the actual use, however they all support (optionally) the `label`, `className` and `style` attributes, 
+assumption 假定
+that can be used to style to component.
 
 ```js
 ...
