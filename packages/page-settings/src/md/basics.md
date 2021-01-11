@@ -1,18 +1,25 @@
 # Settings
 
-Here you are able to tweak a number of the settings for your interface - where it connects to, the actual theme and if you are a developer, have access to some additional features to allow for a stress-free connection to a (possibly) custom chain.
-
+Here you are able to tweak a number of the settings for your interface - where it connects to, the actual theme and if you are a developer, have access to some 
+tweak 拧 actual真正的
+additional features to allow for a stress-free connection to a (possibly) custom chain.
+stress-free 无压力的
 # General
 
 In the general section you can setup the basic operation for your UI.
 
-- **endpoint** Defines the node to connect to. Select from one of the available hosted RPCs or connect to your own by specifying a custom URL. (Be aware that custom URLs should be behind secure WebSockets if you are using a UI hosted on a https endpoint)
+- **endpoint** Defines the node to connect to. Select from one of the available hosted RPCs or connect to your own by specifying a custom URL. (Be aware that custom 
+specify 具体说明  aware 意识到 
+URLs should be behind secure WebSockets if you are using a UI hosted on a https endpoint)
 - **theme** Swap between a Polkadot or Substrate themed interface.
 - **mode** By default the UI appears in a fully-featured mode. You can select to only have the core features (which provides all the basics, unless you are a power user).
-
+power user 超级用户
 # Developer
 
-In this section, you are able to define custom types to be added to the underlying API. When developing a custom chain, it is typical that additional types are added. Defining them here allows the underlying API (and therefore the UI) have an understanding how to encode and decode these types.
+In this section, you are able to define custom types to be added to the underlying API. When developing a custom chain, it is typical that additional types are
+underly 潜在的 typical 典型的 
+added. Defining them here allows the underlying API (and therefore the UI) have an understanding how to encode and decode these types.
+
 
 Types are saved across refreshes, so it is a single operation for all future usages of the UI. For the definitions, a simple JSON format is used, and example could be -
 
@@ -35,7 +42,7 @@ Types are saved across refreshes, so it is a single operation for all future usa
 ```
 
 Be aware that the types are registered in the order they appear here, however it does support resolution independent of the order. (Circular deps are not supported here). For a slightly more complex example, using both types, enums, tuples and Compact numbers, the following would be used -
-
+complex 复杂的
 ```
 {
   "ArrayThing": "Vec<Thing>",
